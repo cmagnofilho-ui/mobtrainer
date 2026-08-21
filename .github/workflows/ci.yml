@@ -17,6 +17,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm install
 
       - name: Validate JSON
         run: |
@@ -35,3 +41,10 @@ jobs:
         run: |
           test -f docs/CONSENT_LGPD.md
           test -f docs/AI_PROMPTS.md
+          test -f docs/PRIVACY_POLICY.md
+          test -f docs/TERMS_OF_SERVICE.md
+          test -f docs/REFUND_POLICY.md
+
+      - name: Run backend tests
+        working-directory: backend
+        run: npm test
