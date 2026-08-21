@@ -1,0 +1,19 @@
+{
+  "app.name": "MobTrainer",
+  "app.tagline": "Treinos e acompanhamento nutricional",
+  "auth.register": "Cadastrar",
+  "auth.login": "Entrar",
+  "auth.name": "Nome",
+  "auth.email": "E-mail",
+  "auth.password": "Senha",
+  "training.plan": "Plano de treino",
+  "nutrition.plan": "Plano nutricional",
+  "ethnicities": [
+    "Branca",
+    "Preta",
+    "Parda",
+    "Amarela",
+    "Indígena",
+    "Prefiro não informar"
+  ]
+}
