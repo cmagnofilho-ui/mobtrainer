@@ -672,11 +672,13 @@ export default function App() {
       return;
     }
 
+    const activeSession = session;
+
     async function loadDashboard() {
       try {
         const response = await fetch(`${API_BASE_URL}/dashboard`, {
           headers: {
-            Authorization: `Bearer ${session.token}`
+            Authorization: `Bearer ${activeSession.token}`
           }
         });
 
