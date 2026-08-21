@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, scaffold/mvp-setup ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm install
+
+      - name: Validate JSON
+        run: |
+          python - <<'PY'
+          import json
+          for path in ['i18n/pt-BR.json', 'i18n/en-US.json']:
+              with open(path, 'r', encoding='utf-8') as f:
+                  json.load(f)
+          print('JSON validation OK')
+          PY
+
+      - name: Validate SQL file exists
+        run: test -f sql/schema.sql
+
+      - name: Validate docs existing
+        run: |
+          test -f docs/CONSENT_LGPD.md
+          test -f docs/AI_PROMPTS.md
+          test -f docs/PRIVACY_POLICY.md
+          test -f docs/TERMS_OF_SERVICE.md
+          test -f docs/REFUND_POLICY.md
+
+      - name: Run backend tests
+        working-directory: backend
+        run: npm test

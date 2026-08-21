@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "MobTrainer",
+    "slug": "mobtrainer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mobtrainer.app"
+    },
+    "android": {
+      "package": "com.mobtrainer.app"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}

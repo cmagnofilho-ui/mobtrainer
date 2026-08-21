@@ -1,0 +1,19 @@
+{
+  "app.name": "MobTrainer",
+  "app.tagline": "Training and nutrition tracking",
+  "auth.register": "Register",
+  "auth.login": "Login",
+  "auth.name": "Name",
+  "auth.email": "Email",
+  "auth.password": "Password",
+  "training.plan": "Training plan",
+  "nutrition.plan": "Nutrition plan",
+  "ethnicities": [
+    "White",
+    "Black",
+    "Mixed",
+    "Asian",
+    "Indigenous",
+    "Prefer not to say"
+  ]
+}
